@@ -1,0 +1,16 @@
+<%= render "layouts/navbar" %>
+
+<main class="w-100 mw-lg mx-auto px-3 mt-5">
+  <h1 class="dp-title text-center"><%= @news.title %></h1>
+
+  <div class="w-100 d-flex flex-column justify-content-start">
+    <% unless @news.reading_time.blank? %>
+      <span class="mb-2"><span class="fw-bold">Reading time:</span> <%= @news.reading_time %></span>
+    <% end %>
+    <span class="mb-2"><span class="fw-bold">Published at:</span> <%= @news.created_at.localtime.strftime("%B %d, %Y - %H:%M") %></span>
+  </div>
+
+  <article class="w-full mt-5">
+    <%= @news.content.html_safe %>
+  </article>
+</main>
