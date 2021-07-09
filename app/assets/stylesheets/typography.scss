@@ -1,0 +1,32 @@
+.dp-title {
+  font-family: 'Newsreader', serif;
+  font-size: 3rem;
+  font-weight: 400;
+
+  &.bold {
+    font-weight: bold;
+  }
+
+  &__large {
+    font-size: 4rem;
+  }
+}
+
+.dp-subtitle {
+  font-family: 'Newsreader', serif;
+  font-size: 2rem;
+  font-weight: 400;
+
+  &.bold {
+    font-weight: bold;
+  }
+
+  &__large {
+    font-size: 2.5rem;
+  }
+}
+
+.text-dark {
+  color: #2E2F30;
+  text-decoration: none;
+}
