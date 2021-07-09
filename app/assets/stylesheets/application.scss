@@ -24,3 +24,10 @@ a h1 {
   color: #2E2F30;
   text-decoration: none;
 }
+
+/* mce editor */
+span.tox-statusbar__branding {
+  a {
+    display: none;
+  }
+}

@@ -1,0 +1,46 @@
+// Place all the styles related to the News controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+article {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', serif;
+  }
+
+  h3, h4, h5, h6 {
+    font-weight: normal;
+  }
+
+  h1 {
+    font-weight: bold;
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: 2.75rem;
+  }
+
+  h3 {
+    font-size: 2.5rem;
+  }
+
+  h4 {
+    font-size: 2.25rem;
+  }
+
+  h5 {
+    font-size: 2rem;
+  }
+
+  h6 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+  }
+}
