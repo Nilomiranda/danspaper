@@ -5,7 +5,7 @@ class NewsController < ApplicationController
 
   end
 
-  def read
+  def show
     dom_sanitizer = Rails::Html::SafeListSanitizer.new
     @news = News.find_by(id: params[:id])
     @news.content = dom_sanitizer.sanitize(@news.content, attributes: %w(id class style))
@@ -20,7 +20,7 @@ class NewsController < ApplicationController
     @news.user_id = current_user[:id]
 
     if @news.save
-      redirect_to "/publications/read/#{@news.id}"
+      redirect_to news_path(id: @news.id)
     else
       @errors = @news.errors.messages[:content][0]
       puts("@errors", @errors)
@@ -31,7 +31,19 @@ class NewsController < ApplicationController
 
   end
 
-  def delete
+  def destroy
+    news_id = params[:id]
+    puts("news_id", news_id)
+
+    @news = News.find_by(id: news_id)
+
+    puts("@news", @news.to_json)
+
+    nil unless @news.present?
+
+    if @news.destroy
+      redirect_to root_url
+    end
 
   end
 

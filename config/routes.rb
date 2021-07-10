@@ -5,8 +5,13 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  get "/publications/new", to: "news#new"
-  post "/publications/new", to: "news#create"
-  get "/publications/read/:id", to: "news#read"
+  # scope "/publications" do
+  #   get "/new", to: "news#new"
+  #   post "/new", to: "news#create"
+  #   get "/read/:id", to: "news#read"
+  #   delete "/:id", to: "news#delete"
+  # end
+
+  resources :news, path: :publications
 
 end

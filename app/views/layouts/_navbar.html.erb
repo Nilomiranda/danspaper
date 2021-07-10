@@ -23,7 +23,7 @@
           </li>
           <% unless controller_name == "news" && action_name == "new" %>
             <li class="nav-item ms-3">
-              <%= link_to publications_new_url do %>
+              <%= link_to new_news_url do %>
                 <button type="button" class="btn btn-dark">Create publication</button>
               <% end %>
             </li>

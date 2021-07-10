@@ -5,7 +5,9 @@
         Are you sure you want to delete this publication?
       </div>
       <div class="w-100 d-flex align-items-center justify-content-end p-4">
-        <button type="button" class="btn btn-danger me-3">Yes</button>
+        <%= form_for @news, url: news_url, method: :delete do %>
+          <button type="submit" class="btn btn-danger me-3">Yes</button>
+        <% end %>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
       </div>
     </div>
