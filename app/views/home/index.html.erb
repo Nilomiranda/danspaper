@@ -9,7 +9,9 @@
     <% if @news.empty? %>
       <p>No news to read</p>
     <% else %>
-      <p>You will read some news in a few</p>
+      <% @news.each do | publication | %>
+        <%= render partial: "news/card", locals: { publication: publication } %>
+      <% end %>
     <% end %>
   </div>
 </main>

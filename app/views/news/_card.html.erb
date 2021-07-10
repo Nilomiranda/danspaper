@@ -1,0 +1,7 @@
+<a class="publication-card" href="<%= news_path id: publication.id  %>">
+  <div class="d-flex flex-column justify-content-center">
+    <h2 class="dp-subtitle"><%= publication.title %></h2>
+
+    <span class="text-secondary"><%= publication.created_at.localtime.strftime("%B %d, %Y - %H:%M") %></span>
+  </div>
+</a>

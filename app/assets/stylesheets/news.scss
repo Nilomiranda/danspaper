@@ -44,3 +44,12 @@ article {
     font-size: 1rem;
   }
 }
+
+.publication-card {
+  text-decoration: none;
+  color: #2E2F30;
+
+  &:hover {
+    color: #666666;
+  }
+}
