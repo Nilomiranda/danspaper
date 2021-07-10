@@ -24,8 +24,8 @@
 
     <% if current_user.present? && current_user[:id] == @news.user_id %>
       <div class="mt-3">
-        <button type="button" class="btn btn-secondary">Edit</button>
-        <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#article-delete-modal">Delete</button>
+        <button type="button" class="btn btn-secondary btn-sm">Edit</button>
+        <button type="button" class="btn btn-danger btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#article-delete-modal">Delete</button>
       </div>
     <% end %>
   </div>
