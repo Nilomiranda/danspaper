@@ -16,8 +16,12 @@ class NewsController < ApplicationController
   end
 
   def create
+    puts("params", publication_params)
+
     @news = News.create publication_params
     @news.user_id = current_user[:id]
+
+    @news.thumbnail.attach(publication_params[:thumbnail])
 
     if @news.save
       redirect_to news_path(id: @news.id)
@@ -50,6 +54,6 @@ class NewsController < ApplicationController
   private
 
   def publication_params
-    params.require(:publication).permit(:content, :published, :thumbnail_url, :reading_time, :title)
+    params.require(:publication).permit(:content, :published, :thumbnail, :reading_time, :title)
   end
 end
