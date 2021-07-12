@@ -1,0 +1,7 @@
+<% if publication.thumbnail.attached? %>
+  <img src="<%= publication.thumbnail.attachment.url %>" alt="<%= publication.title %>" class="img-fluid mb-3" />
+<% else %>
+  <div class="publication-thumbnail d-flex justify-content-center align-items-center bg-dark p-5 mb-3">
+    <span class="dp-subtitle__large text-light"><%= publication.title %></span>
+  </div>
+<% end %>
