@@ -29,7 +29,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.4', require: false
+gem 'bootsnap', '>= 1.4.4'
 
 gem 'devise'
 
