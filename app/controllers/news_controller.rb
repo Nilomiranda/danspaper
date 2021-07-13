@@ -67,7 +67,7 @@ class NewsController < ApplicationController
     if @news.thumbnail.attached?
       @news.thumbnail.attachment.purge
 
-      redirect_to news_path id: params[:id]
+      redirect_back fallback_location: edit_news_path(id: params[:id])
     end
   end
 
