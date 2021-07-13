@@ -3,25 +3,29 @@
 <%= render 'layouts/navbar' %>
 
 <main class="w-full mt-5">
-  <h1 class="dp-subtitle w-full mx-auto mw-md px-3 text-center mb-5">Create a new publication</h1>
+  <h1 class="dp-subtitle w-100 mx-auto mw-md px-3 text-center mb-5">Editing publication</h1>
 
+  <% if @news.thumbnail.attached? %>
+    <div class="w-100 mx-auto mw-md px-3 mb-5">
+      <p class="form-label mb-2">Current thumbnail</p>
+      <%= render partial: "news/card_thumbnail", locals: { publication: @news } %>
+    </div>
+  <% end %>
 
-  <%= form_with url: news_index_url, method: :post, id: "new-article", local: false do | form | %>
+  <%= form_with model: @news, scope: :publication, url: news_path, method: "patch", id: "new-article", local: true do | form | %>
     <div class="w-100 mw-lg mx-auto px-3 mb-4 d-flex flex-column justify-content-start">
       <label class="form-label d-flex flex-column mb-3">
         <span>Title</span>
-        <input type="text" name="publication[title]" class="form-control" />
+        <%= form.text_field :title, class: "form-control" %>
       </label>
-
-      <%#= react_component("ImageUpload") %>
 
       <div class="mb-3">
         <label for="thumbnail-picker" class="form-label">Thumbnail</label>
-        <%= form.file_field "publication[thumbnail]", class: "form-control" %>
+        <%= form.file_field :thumbnail, class: "form-control" %>
       </div>
 
       <div class="form-check mb-3">
-        <input class="form-check-input" type="checkbox" name="publication[published]" id="published-check">
+        <%= form.check_box :published, class:"form-check-input", id:"published-check" %>
         <label class="form-check-label" for="published-check">
           Published
         </label>
@@ -29,13 +33,13 @@
 
       <label class="form-label d-flex flex-column mb-3">
         <span>Reading time</span>
-        <input type="text" name="publication[reading_time]" class="form-control" placeholder="How long will users take to read your article? (Ex.: 2 minutes)" />
+        <%= form.text_field :reading_time, class: "form-control", placeholder: "How long will users take to read your article? (Ex.: 2 minutes)" %>
         <span class="form-text">Leave it blank if don't want to include this information</span>
       </label>
     </div>
 
     <div class="w-100 mx-auto mw-lg px-3">
-      <textarea id="content-editor" name="publication[content]"></textarea>
+      <%= form.text_area :content, id: "content-editor" %>
     </div>
 
     <div class="w-100 mw-lg mx-auto d-flex justify-content-end align-items-center px-3 mt-5">

@@ -31,8 +31,19 @@ class NewsController < ApplicationController
     end
   end
 
-  def update
+  def edit
+    @news = News.find_by(id: params[:id])
+  end
 
+  def update
+    @news = News.find_by(id: params[:id])
+
+    if @news.update publication_params
+      redirect_to news_path(id: @news.id)
+    else
+      @errors = @news.errors.messages[:content][0]
+      puts("@errors", @errors)
+    end
   end
 
   def destroy
