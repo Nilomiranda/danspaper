@@ -1,4 +1,4 @@
-<a class="publication-card" href="<%= news_path id: publication.id  %>">
+<a class="publication-card" href="<%= news_path id: "#{publication.id}-#{publication.slug}"  %>">
   <div class="d-flex flex-column justify-content-center mb-5">
     <%= render partial: "news/card_thumbnail", locals: { publication: publication } %>
 
