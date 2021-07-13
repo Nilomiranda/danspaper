@@ -1,0 +1,13 @@
+<div class="w-100 mw-sm mx-auto px-3 h-100 mt-5">
+  <% if !publications.nil? && publications.empty? %>
+    <% if empty_list_message.nil? %>
+      <p>Nothing to show</p>
+    <%  else  %>
+      <p><%=  empty_list_message  %></p>
+    <% end %>
+  <% else %>
+    <% publications.each do | publication | %>
+      <%= render partial: "news/card", locals: { publication: publication, user_is_managing: user_is_managing } %>
+    <% end %>
+  <% end %>
+</div>

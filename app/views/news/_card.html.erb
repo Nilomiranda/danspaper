@@ -1,9 +1,37 @@
 <a class="publication-card" href="<%= news_path id: "#{publication.id}-#{publication.slug}"  %>">
-  <div class="d-flex flex-column justify-content-center mb-5">
-    <%= render partial: "news/card_thumbnail", locals: { publication: publication } %>
+  <div class="d-flex flex-column align-items-stretch mb-5 <%= user_is_managing ? "card card-body" : "" %>">
+    <% unless user_is_managing %>
+      <%= render partial: "news/card_thumbnail", locals: { publication: publication } %>
+    <% end %>
 
-    <h2 class="dp-subtitle"><%= publication.title %></h2>
 
+    <div class="d-flex align-items-center justify-content-between w-100">
+      <div class="d-flex align-items-center">
+        <h2 class="dp-subtitle"><%= publication.title %></h2>
+        <% unless publication.published %>
+          <span class="badge bg-warning text-dark ms-3">Draft</span>
+        <% end %>
+      </div>
+
+      <% if user_is_managing %>
+        <div class="d-flex align-items-center">
+          <button
+            type="button"
+            id="delete-btn"
+            class="btn btn-link text-danger"
+            data-remote="true"
+            data-method="delete"
+            data-url="<%= news_url id: publication.id %>"
+            data-confirm="Are you sure you want to delete this publication?"
+          >
+            Delete
+          </button>
+        </div>
+      <% end %>
+
+    </div>
     <span class="text-secondary"><%= publication.created_at.localtime.strftime("%B %d, %Y - %H:%M") %></span>
   </div>
 </a>
+
+<%#= render "news/deletion_confirmation_modal" %>

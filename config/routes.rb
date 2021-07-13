@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   resources :news, path: :publications
 
   delete "/publications/:id/remove_thumbnail", to: "news#remove_thumbnail"
+
+  scope "/profile" do
+    get "/publications", to: "profile#publications"
+  end
 end

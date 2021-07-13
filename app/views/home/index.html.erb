@@ -5,13 +5,5 @@
     <h1 class="dp-title dp-title__large bold">Todays News</h1>
   </div>
 
-  <div class="w-100 mw-sm mx-auto px-3 h-100 mt-5">
-    <% if @news.empty? %>
-      <p>No news to read</p>
-    <% else %>
-      <% @news.each do | publication | %>
-        <%= render partial: "news/card", locals: { publication: publication } %>
-      <% end %>
-    <% end %>
-  </div>
+  <%= render partial: "news/list", locals: { publications: @news, empty_list_message: "Nothing to read today", user_is_managing: false } %>
 </main>

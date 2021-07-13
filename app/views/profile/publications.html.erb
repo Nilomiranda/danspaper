@@ -1,0 +1,14 @@
+<%= render "layouts/navbar" %>
+
+<main class="w-100 mw-md mx-auto px-3 mt-5">
+  <h1 class="dp-title w-100 text-center">My publications</h1>
+
+  <%= render partial: "news/list", locals: { publications: @news, empty_list_message: "You haven't published anything yet.", user_is_managing: true } %>
+  <% if @news.empty? %>
+    <div class="w-100 d-flex align-items-center justify-content-center mt-5">
+      <%= link_to new_news_url do %>
+        <button type="button" class="btn btn-dark">Create publication</button>
+      <% end %>
+    </div>
+  <% end %>
+</main>
