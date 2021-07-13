@@ -62,6 +62,15 @@ class NewsController < ApplicationController
 
   end
 
+  def remove_thumbnail
+    @news = News.find_by(id: params[:id])
+    if @news.thumbnail.attached?
+      @news.thumbnail.attachment.purge
+
+      redirect_to news_path id: params[:id]
+    end
+  end
+
   private
 
   def publication_params
